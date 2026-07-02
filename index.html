@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title></title> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/dist/mathjax.r"></script>
+
+    <style>
+        body {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        header, footer {
+            text-align: center;
+        }
+        nav a {
+            color: #0000ee;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            border: 0;
+            border-top: 1px dashed #ccc;
+            margin: 20px 0;
+        }
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        code, pre {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            background-color: #f9f9f9;
+        }
+        pre {
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .post-date {
+            font-family: monospace;
+            color: #555;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Categories</a>
+            <a href="#">Tags</a>
+            <a href="#">Subscribe</a>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- Tiêu đề Blog chính -->
+    <main>
+        <h1>HUGO XMIN</h1>
+        <p class="subtitle">Keep it simple, but not simpler</p>
+
+        <p><strong>XMin</strong> là một giao diện cực kỳ tối giản. Mục tiêu chính là đem lại một không gian đọc viết gọn gàng nhất có thể, chỉ bao gồm khoảng 140 dòng code bao gồm cả HTML và CSS.</p>
+
+        <!-- Khối hiển thị code mẫu -->
+        <pre><code>find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xargs wc -l</code></pre>
+
+        <pre><code>12 ./layouts/single.html
+20 ./layouts/list.html
+13 ./layouts/terms.html
+
+        <p>$$\sqrt{n}\left(\left(\frac{1}{n}\sum_{i=1}^{n}X_i\right) - \mu\right) \xrightarrow{d} N(0, \sigma^2)$$</p>
+
+        <p>Tất cả các bài viết cũ hơn được liệt kê phía bên dưới:</p>
+
+        <ul>
+            <li><span class="post-date">2026/07/02</span><a href="#">Bài viết hướng dẫn tự xây dựng Blog thô</a></li>
+            <li><span class="post-date">2026/06/14</span><a href="#">Another Note on A blogdown Tutorial</a></li>
+            <li><span class="post-date">2016/02/14</span><a href="#">A Plain Markdown Post</a></li>
+            <li><span class="post-date">2015/07/23</span><a href="#">Lorem Ipsum Dolor Sit Amet</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; thinhpham23 2026 | <a href="#">GitHub</a> | <a href="#">BlueSky</a></p>
+    </footer>
+
+</body>
+</html>
