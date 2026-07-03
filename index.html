@@ -104,6 +104,26 @@
         </pre>
         <p> Đây là Định lý giới hạn trung tâm (Central Limit Theorem - CLT), cụ thể là dạng chuẩn hóa của trung bình mẫu.</p>
         <p>$$\sqrt{n}\left(\left(\frac{1}{n}\sum_{i=1}^{n}X_i\right) - \mu\right) \xrightarrow{d} N(0, \sigma^2)$$</p>
+        <p>Biến <strong>Petal Length</strong> được giả sử tuân theo phân phối chuẩn:</p>
+        <p style="text-align: center;">$$X \sim N(\mu,\sigma^2)$$</p>
+        <p>Trong đó:</p>
+        <ul>
+            <li><strong>&mu;</strong> là giá trị trung bình.</li>
+            <li><strong>&sigma;</strong> là độ lệch chuẩn.</li>
+        </ul>
+        <p>Hàm mật độ xác suất (PDF):</p>
+        
+        <p style="text-align: center;">
+            $$f(x)=\frac{1}{\sigma\sqrt{2\pi}}
+            e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+        </p>
+        
+        <p>
+            Từ dữ liệu thực tế, ta tính được <strong>&mu;</strong> và
+            <strong>&sigma;</strong>, sau đó dùng
+            <code>scipy.stats.norm.pdf()</code>
+            để vẽ đường phân phối chuẩn lý thuyết và so sánh với histogram của dữ liệu.
+        </p>
         <p>Tất cả các bài viết cũ hơn được liệt kê phía bên dưới:</p>
         <ul>
             <li><span class="post-date">2026/07/02</span><a href="#">Bài viết hướng dẫn tự xây dựng Blog</a></li>
@@ -111,6 +131,7 @@
     </main>
     <footer>
         <hr>
+        <!--thêm link github cá nhân-->
         <p>&copy; thinhpham23@2026 | <a href="#">GitHub</a> | <a href="#">BlueSky</a></p>
     </footer>
 
