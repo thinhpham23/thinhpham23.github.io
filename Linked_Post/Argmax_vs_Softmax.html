@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Argmax vs Softmax</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script>
+MathJax = {
+tex: {
+inlineMath: [['$','$'],['\\(','\\)']],
+displayMath: [['$$','$$']]
+},
+svg:{
+fontCache:'global'
+}
+};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+
+body{
+
+font-family:"Segoe UI",sans-serif;
+
+background:#ffffff;
+
+color:#222;
+
+max-width:980px;
+
+margin:auto;
+
+padding:40px;
+
+line-height:1.9;
+
+font-size:20px;
+
+}
+
+h1{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+font-weight:700;
+
+}
+
+h2{
+
+font-size:34px;
+
+margin-top:60px;
+
+margin-bottom:20px;
+
+font-weight:700;
+
+}
+
+p{
+
+margin:18px 0;
+
+}
+
+.math{
+
+text-align:center;
+
+font-size:32px;
+
+margin:40px 0;
+
+}
+
+.note{
+
+background:#f5f7fb;
+
+border-left:6px solid #4f81ff;
+
+padding:18px;
+
+margin:35px 0;
+
+font-size:20px;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:30px;
+
+margin-bottom:40px;
+
+font-size:19px;
+
+}
+
+th{
+
+background:#ececec;
+
+padding:16px;
+
+border:1px solid #bbb;
+
+font-weight:700;
+
+}
+
+td{
+
+padding:16px;
+
+border:1px solid #bbb;
+
+vertical-align:top;
+
+}
+
+ul{
+
+margin-left:30px;
+
+}
+
+li{
+
+margin:12px 0;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Argmax vs Softmax: Hiểu Đúng Để Không Nhầm Lẫn 🎯🤔</h1>
+
+<h2>Argmax Là Gì? 🔎</h2>
+
+<p>
+
+Argmax là một toán tử rất đơn giản nhưng cực kỳ hữu ích trong machine learning.
+Nó có nhiệm vụ <b>chọn ra chỉ số của phần tử có giá trị lớn nhất</b> trong một tập hợp
+hoặc vector.
+
+</p>
+
+<div class="math">
+
+$$
+\operatorname{Argmax}(z)_i=
+\begin{cases}
+1,&\text{nếu } z_i=\max(z)\\
+0,&\text{ngược lại}
+\end{cases}
+$$
+
+</div>
+
+<p>
+
+<b>Ví dụ:</b>
+
+$z=[2.1,-0.5,3.0]$
+
+$\rightarrow$
+
+Argmax =
+
+$[0,0,1]$
+
+(chọn lớp thứ 3).
+
+</p>
+
+<p>
+
+<b>Ứng dụng:</b>
+
+Sau khi một mô hình phân loại tính toán các giá trị (logits) cho mỗi lớp,
+argmax thường được sử dụng để <b>quyết định dự đoán cuối cùng</b> –
+chọn lớp có khả năng xuất hiện cao nhất.
+
+</p>
+
+<div class="note">
+
+💡 <b>Lưu ý:</b>
+
+Argmax là một hàm <b>không khả vi (non-differentiable)</b>,
+nghĩa là không thể sử dụng nó trực tiếp trong quá trình huấn luyện bằng thuật toán
+lan truyền ngược (backpropagation).
+
+</div>
+<h2>Softmax Là Gì? 🔄</h2>
+
+<p>
+
+Softmax là một hàm kích hoạt được sử dụng để chuyển đổi một vector các giá trị
+thực bất kỳ thành một phân phối xác suất. Điều này có nghĩa là đầu ra của hàm
+softmax sẽ luôn nằm trong khoảng từ <b>0 đến 1</b> và tổng tất cả các giá trị sẽ bằng
+<b>1</b>. Với vector đầu vào
+
+$z=[z_1,z_2,\ldots,z_n]$,
+
+hàm softmax cho phần tử thứ $i$ được tính như sau:
+
+</p>
+
+<div class="math">
+
+$$
+\operatorname{softmax}(z_i)=
+\frac{e^{z_i}}
+{\sum_{j=1}^{n}e^{z_j}}
+$$
+
+</div>
+
+<p>
+
+<b>Ví dụ:</b>
+
+$z=[1.0,2.0,3.0]$
+
+$\rightarrow$
+
+Softmax $\approx [0.09,0.24,0.67]$.
+
+</p>
+
+<p>
+
+<b>Ứng dụng:</b>
+
+Trong các mô hình phân loại, softmax được áp dụng vào logits để tạo ra
+một phân phối xác suất qua các lớp. Điều này cho phép mô hình không chỉ dự đoán
+lớp nào có khả năng cao nhất mà còn cho biết độ tin cậy của từng dự đoán.
+
+</p>
+
+<div class="note">
+
+💡 <b>Lưu ý:</b>
+
+Softmax là hàm <b>khả vi (differentiable)</b>, giúp quá trình tối ưu hóa và lan
+truyền ngược trở nên khả thi.
+
+</div>
+
+<h2>So Sánh Argmax và Softmax: Điểm Khác Biệt Cơ Bản ⚖️</h2>
+
+<table>
+
+<tr>
+
+<th>Khái niệm</th>
+
+<th>Argmax 🎯</th>
+
+<th>Softmax 🍰</th>
+
+</tr>
+
+<tr>
+
+<td><b>Chức năng</b></td>
+
+<td>Chọn chỉ số của phần tử có giá trị lớn nhất.</td>
+
+<td>Chuyển đổi vector thành phân phối xác suất.</td>
+
+</tr>
+
+<tr>
+
+<td><b>Đầu ra</b></td>
+
+<td>Một chỉ số (hoặc một giá trị cụ thể).</td>
+
+<td>Một vector xác suất, các giá trị trong khoảng [0, 1].</td>
+
+</tr>
+
+<tr>
+
+<td><b>Khả năng khả vi</b></td>
+
+<td>Không khả vi (non-differentiable).</td>
+
+<td>Khả vi (differentiable).</td>
+
+</tr>
+
+<tr>
+
+<td><b>Ứng dụng</b></td>
+
+<td>Quyết định dự đoán cuối cùng trong phân loại.</td>
+
+<td>Tạo ra phân phối xác suất cho mỗi lớp.</td>
+
+</tr>
+
+</table>
+
+<h2>Một Số Điểm Lưu Ý</h2>
+
+<ul>
+
+<li>
+
+<b>Quá trình huấn luyện:</b>
+
+Trong giai đoạn huấn luyện, ta thường sử dụng softmax kết hợp với
+hàm mất mát (như cross-entropy) để tối ưu hóa mô hình.
+
+</li>
+
+<li>
+
+<b>Quá trình dự đoán:</b>
+
+Sau khi mô hình đã được huấn luyện, argmax thường được sử dụng để lấy ra
+kết quả dự đoán cuối cùng từ phân phối xác suất đã được tạo ra bởi softmax.
+
+</li>
+
+</ul>
+<h2>💥 Sai Lầm Phổ Biến Khi Sử Dụng</h2>
+
+<ol>
+
+<li>
+
+<b>Dùng Softmax mà không hiểu nhiệt độ (temperature):</b>
+
+<p>
+
+Tham số <b>temperature (T)</b> trong Softmax điều chỉnh độ "mềm" của xác suất:
+
+</p>
+
+<div class="math">
+
+$$
+\operatorname{softmax}(z_i)=
+\frac{e^{z_i/T}}
+{\sum_{j=1}^{n}e^{z_j/T}}
+$$
+
+</div>
+
+<ul>
+
+<li>
+
+<b>T quá cao</b> → Xác suất phân phối đều (khó phân biệt lớp).
+
+</li>
+
+<li>
+
+<b>T quá thấp</b> → Xác suất tập trung vào lớp lớn nhất (gần giống Argmax).
+
+</li>
+
+</ul>
+
+</li>
+
+<br>
+
+<li>
+
+<b>Nhầm lẫn giữa Logits và Probabilities:</b>
+
+<ul>
+
+<li>
+
+<b>Logits</b> là các giá trị đầu ra thô của mô hình (có thể âm hoặc dương).
+
+</li>
+
+<li>
+
+<b>Probabilities</b> (sau Softmax) luôn nằm trong khoảng <b>[0,1]</b> và tổng bằng <b>1</b>.
+
+</li>
+
+</ul>
+
+</li>
+
+</ol>
+
+<h2>Kết Luận 🔮</h2>
+
+<p>
+
+Qua bài viết này, hi vọng bạn đã hiểu rõ sự khác biệt cũng như mối liên hệ giữa
+<b>Argmax</b> và <b>Softmax</b>.
+
+Argmax giúp chúng ta chọn lựa kết quả cuối cùng từ một tập hợp các giá trị,
+trong khi Softmax giúp biến đổi các giá trị đó thành một phân phối xác suất hợp lý,
+có khả năng lan truyền ngược trong quá trình huấn luyện.
+
+</p>
+
+</body>
+<pre>
+<a href="https://viblo.asia/p/argmax-vs-softmax-hieu-dung-de-khong-nham-lan-zXRJ8rOOVGq", target="_blank">Bài viết gốc</a>
+<a href="../index.html">Quay lại Trang chủ</a>
+</pre>
+</html>

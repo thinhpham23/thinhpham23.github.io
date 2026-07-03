@@ -74,6 +74,24 @@
             color: #555;
             margin-right: 10px;
         }
+        .hero{
+            display:flex;
+            justify-content:space-between;
+            align-items:flex-start;
+            gap:40px;
+            margin-bottom:30px;
+        }
+
+        .hero-text{
+            flex:1;
+        }
+
+        .hero-image img{
+            width:180px;
+            height:180px;
+            object-fit:cover;
+            border-radius:50%;
+        }
     </style>
 </head>
 <body>
@@ -82,7 +100,6 @@
             <a href="#">Home</a>
             <a href="#">About</a>
             <a href="#">Categories</a>
-            <a href="#">Tags</a>
             <a href="#">Subscribe</a>
         </nav>
         <hr>
@@ -90,21 +107,32 @@
 
     <!-- Tiêu đề Blog chính -->
     <main>
-        <h1>Hello world !</h1>
-        <p class="subtitle">My first Blog about Math in ML</p>
-        <p><strong>Pham Ngoc Thinh</strong> Welcome to you @^@</p>
-        <pre><code></code></pre>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Hello world !</h1>
+                <p class="subtitle">My first Blog about Math in ML</p>
+
+                <p><strong>Pham Ngoc Thinh</strong> Welcome to you @^@</p>
+            </div>
+
+            <div class="hero-image">
+                <img src="Image/github-logo-png_seeklogo-304612.png" alt="Avatar">
+            </div>
+        </section>
         <pre>
-            <code>
-                print("Các kiến thức cơ bản cần có :")
-            </code>
-            1. Đại số tuyến tính 
-            2. Giải tích 
-            3. Xác suất thống kê
+           <strong>I love T1 &#11088&#11088&#11088&#11088&#11088&#11088 and FOKDP_2026 </strong>
         </pre>
+
+        <p><strong>Các kiến thức cơ bản cần có :</strong></p>
+        <ul>
+            <li>📚 Đại số tuyến tính</li>
+            <li>📐 Giải tích</li>
+            <li>📊 Xác suất thống kê</li>
+        </ul>
+
         <p> Đây là Định lý giới hạn trung tâm (Central Limit Theorem - CLT), cụ thể là dạng chuẩn hóa của trung bình mẫu.</p>
         <p>$$\sqrt{n}\left(\left(\frac{1}{n}\sum_{i=1}^{n}X_i\right) - \mu\right) \xrightarrow{d} N(0, \sigma^2)$$</p>
-        <p>Biến <strong>Petal Length</strong> được giả sử tuân theo phân phối chuẩn:</p>
+        <p> <strong> Giả sử phân phối chuẩn:</strong></p>
         <p style="text-align: center;">$$X \sim N(\mu,\sigma^2)$$</p>
         <p>Trong đó:</p>
         <ul>
@@ -124,15 +152,16 @@
             <code>scipy.stats.norm.pdf()</code>
             để vẽ đường phân phối chuẩn lý thuyết và so sánh với histogram của dữ liệu.
         </p>
-        <p>Tất cả các bài viết cũ hơn được liệt kê phía bên dưới:</p>
+        <p><strong>Các bài post :</strong></p>
         <ul>
-            <li><span class="post-date">2026/07/02</span><a href="#">Bài viết hướng dẫn tự xây dựng Blog</a></li>
+            <li><span class="post-date">02/07/2026</span><a href="Linked_Post/Create_webpage.html">Bài viết hướng dẫn tự xây dựng Blog</a></li>
+            <li><span class="post-date">02/07/2026</span><a href="Linked_Post/Argmax_vs_Softmax.html">Bài viết về Argmax và Softmax trong Machine Learning</a></li>
         </ul>
     </main>
     <footer>
         <hr>
-        <!--thêm link github cá nhân-->
-        <p>&copy; thinhpham23@2026 | <a href="#">GitHub</a> | <a href="#">BlueSky</a></p>
+
+        <p>&copy; thinhpham23@2026 | <a href="https://github.com/thinhpham23", target="_blank">GitHub</a> | <a href="https://www.facebook.com/pham.ngoc.thinh.286774", target="_blank">Facebook</a></p>
     </footer>
 
 </body>

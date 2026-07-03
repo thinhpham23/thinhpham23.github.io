@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Các bước tạo GitHub Pages</title>
+</head>
+<body>
+
+    <p>Để tạo một trang web GitHub Pages có địa chỉ dạng https://tennguoidung.github.io, bạn có thể làm theo các bước sau:</p>
+
+    <h2>Bước 1: Đăng nhập GitHub</h2>
+    <p>Truy cập: GitHub</p>
+    <p>Đăng nhập vào tài khoản của bạn.</p>
+
+    <h2>Bước 2: Tạo repository mới</h2>
+    <ol>
+        <li>Nhấn <strong>New</strong> (hoặc dấu <strong>+</strong> → <strong>New repository</strong>).</li>
+        <li>Đặt tên repository theo đúng cú pháp:</li>
+    </ol>
+
+    <pre><code>tennguoidung.github.io</code></pre>
+
+    <p>Ví dụ:</p>
+
+    <ul>
+        <li>Tên tài khoản GitHub: <strong>nguyenvana</strong></li>
+        <li>Tên repository phải là:</li>
+    </ul>
+
+    <pre><code>nguyenvana.github.io</code></pre>
+
+    <ul>
+        <li>Chọn <strong>Public</strong>.</li>
+        <li>Có thể tích chọn <strong>Add a README file</strong>.</li>
+        <li>Nhấn <strong>Create repository</strong>.</li>
+    </ul>
+
+    <h2>Bước 3: Thêm trang web</h2>
+
+    <p>Trong repository vừa tạo:</p>
+
+    <ol>
+        <li>Chọn <strong>Add file</strong> → <strong>Create new file</strong>.</li>
+        <li>Đặt tên file:</li>
+    </ol>
+
+    <pre><code>index.html</code></pre>
+
+    <p>Nhập nội dung ví dụ:</p>
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Trang GitHub Pages đầu tiên&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Xin chào GitHub Pages!&lt;/h1&gt;
+    &lt;p&gt;Đây là website đầu tiên của tôi.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    <p>Nhấn <strong>Commit changes</strong>.</p>
+
+    <h2>Bước 4: Bật GitHub Pages</h2>
+
+    <ol>
+        <li>Vào <strong>Settings</strong> của repository.</li>
+        <li>Chọn <strong>Pages</strong> ở menu bên trái.</li>
+        <li>Trong mục <strong>Build and deployment</strong>:
+            <ul>
+                <li>Source: chọn <strong>Deploy from a branch</strong>.</li>
+                <li>Branch:
+                    <ul>
+                        <li>Chọn <strong>main</strong></li>
+                        <li>Folder: <strong>/ (root)</strong></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Nhấn <strong>Save</strong>.</li>
+    </ol>
+
+    <h2>Bước 5: Chờ website được triển khai</h2>
+
+    <p>Sau khoảng <strong>1–5 phút</strong>, GitHub sẽ tạo website.</p>
+
+    <p>Địa chỉ sẽ là:</p>
+
+    <pre><code>https://tennguoidung.github.io</code></pre>
+
+    <p>Ví dụ:</p>
+
+    <pre><code>https://nguyenvana.github.io</code></pre>
+
+    <h2>Bước 6: Cập nhật website</h2>
+
+    <p>Mỗi lần muốn chỉnh sửa:</p>
+
+    <ul>
+        <li>Sửa file <strong>index.html</strong> hoặc thêm các file như:
+            <ul>
+                <li>style.css</li>
+                <li>script.js</li>
+                <li>thư mục images/</li>
+            </ul>
+        </li>
+        <li>Commit các thay đổi.</li>
+        <li>GitHub Pages sẽ tự động cập nhật sau khoảng <strong>1–2 phút</strong>.</li>
+    </ul>
+
+</body>
+<a href="../index.html">Quay lại Trang chủ</a>
+</html>
